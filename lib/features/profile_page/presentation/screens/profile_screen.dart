@@ -1,29 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:otherstory_app/theme/app_colors.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({super.key});
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState() {
     super.initState();
-    print('main init');
+    print('prof init');
   }
 
   @override
   void dispose() {
-    print('main disp');
+    print('prof disp');
     super.dispose();
   }
 
   @override
   void deactivate() {
-    print('main deact');
+    print('prof deact');
     super.deactivate();
   }
 
@@ -33,7 +34,11 @@ class _MainScreenState extends State<MainScreen> {
       decoration: BoxDecoration(
           color: AppColors.whiteColor,
           border: Border.all(color: AppColors.blackColor, width: 1)),
-      child: const Center(child: Text('MainScreen')),
+      child: Center(
+        child: TextButton(
+            onPressed: () => context.go('/'),
+            child: const Text('ProfileScreen')),
+      ),
     );
   }
 }
