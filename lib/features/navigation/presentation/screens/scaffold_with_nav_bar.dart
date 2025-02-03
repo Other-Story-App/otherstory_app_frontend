@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:otherstory_app/features/navigation/data/constants/navigation_constants.dart';
 
 class ScaffoldWithNavBar extends StatefulWidget {
   final StatefulNavigationShell navigationShell;
@@ -14,7 +15,8 @@ class ScaffoldWithNavBar extends StatefulWidget {
 class _ScaffoldWithNavBarState extends State<ScaffoldWithNavBar> {
   void _onTap(BuildContext context, int index) {
     _pageController.animateToPage(index,
-        duration: Duration(milliseconds: 300), curve: Curves.easeIn);
+        duration: NavigationConstants.swipeAnimationDuration,
+        curve: NavigationConstants.swipeAnimationCurve);
     widget.navigationShell.goBranch(
       index,
       initialLocation: index == widget.navigationShell.currentIndex,
