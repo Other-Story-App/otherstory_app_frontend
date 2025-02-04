@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:otherstory_app/features/navigation/data/constants/navigation_constants.dart';
+import 'package:otherstory_app/features/navigation/data/constants/navigation_sizes.dart';
+import 'package:otherstory_app/theme/app_colors.dart';
+import 'package:otherstory_app/theme/app_strings.dart';
+import 'package:otherstory_app/theme/app_text_styles.dart';
+import 'package:otherstory_app/theme/image_source.dart';
 
 class ScaffoldWithNavBar extends StatefulWidget {
   final StatefulNavigationShell navigationShell;
@@ -40,15 +46,52 @@ class _ScaffoldWithNavBarState extends State<ScaffoldWithNavBar> {
         physics: const NeverScrollableScrollPhysics(),
         children: widget.children,
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: widget.navigationShell.currentIndex,
-        onTap: (int index) => _onTap(context, index),
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Главная'),
-          BottomNavigationBarItem(icon: Icon(Icons.feed), label: 'Обо мне'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Профиль'),
-        ],
+      bottomNavigationBar: SizedBox(
+        height: NavigationSizes.navbarHeight,
+        child: BottomNavigationBar(
+          selectedLabelStyle: AppTextStyles.navLabelActiveWhiteTheme,
+          unselectedLabelStyle: AppTextStyles.navLabelInactiveWhiteTheme,
+          selectedItemColor: AppColors.navActiveWhiteTheme,
+          currentIndex: widget.navigationShell.currentIndex,
+          onTap: (int index) => _onTap(context, index),
+          items: [
+            getBottomNavigationBarItem(
+              AppColors.navActiveWhiteTheme,
+              AppColors.navInactiveWhiteTheme,
+              ImageSource.navHome,
+              AppStrings.navHome,
+            ),
+            getBottomNavigationBarItem(
+              AppColors.navActiveWhiteTheme,
+              AppColors.navInactiveWhiteTheme,
+              ImageSource.navHeart,
+              AppStrings.navStatistics,
+            ),
+            getBottomNavigationBarItem(
+              AppColors.navActiveWhiteTheme,
+              AppColors.navInactiveWhiteTheme,
+              ImageSource.navProfile,
+              AppStrings.navProfile,
+            ),
+          ],
+        ),
       ),
     );
   }
+
+  BottomNavigationBarItem getBottomNavigationBarItem(Color activeColor,
+          Color inactiveColor, String svgAssetName, String label) =>
+      BottomNavigationBarItem(
+        icon: SvgPicture.asset(
+          svgAssetName,
+          height: NavigationSizes.iconHeight,
+          colorFilter: ColorFilter.mode(inactiveColor, BlendMode.srcIn),
+        ),
+        activeIcon: SvgPicture.asset(
+          svgAssetName,
+          height: NavigationSizes.iconHeight,
+          colorFilter: ColorFilter.mode(activeColor, BlendMode.srcIn),
+        ),
+        label: label,
+      );
 }
