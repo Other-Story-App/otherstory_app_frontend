@@ -11,24 +11,6 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
-  void initState() {
-    super.initState();
-    print('prof init');
-  }
-
-  @override
-  void dispose() {
-    print('prof disp');
-    super.dispose();
-  }
-
-  @override
-  void deactivate() {
-    print('prof deact');
-    super.deactivate();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(

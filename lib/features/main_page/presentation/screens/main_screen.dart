@@ -10,24 +10,6 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   @override
-  void initState() {
-    super.initState();
-    print('main init');
-  }
-
-  @override
-  void dispose() {
-    print('main disp');
-    super.dispose();
-  }
-
-  @override
-  void deactivate() {
-    print('main deact');
-    super.deactivate();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(

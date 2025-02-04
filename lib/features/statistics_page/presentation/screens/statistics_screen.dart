@@ -10,24 +10,6 @@ class StatisticsScreen extends StatefulWidget {
 
 class _StatisticsScreenState extends State<StatisticsScreen> {
   @override
-  void initState() {
-    super.initState();
-    print('stat init');
-  }
-
-  @override
-  void dispose() {
-    print('stat disp');
-    super.dispose();
-  }
-
-  @override
-  void deactivate() {
-    print('stat deact');
-    super.deactivate();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
