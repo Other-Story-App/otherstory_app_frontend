@@ -2,6 +2,8 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:otherstory_app/features/navigation/presentation/widgets/app_router.dart';
 
 void main() {
   runZonedGuarded(() => runApp(const MainApp()), (error, stack) {
@@ -9,17 +11,15 @@ void main() {
   });
 }
 
+final GoRouter _router = AppRouter.router;
+
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return MaterialApp.router(
+      routerConfig: _router,
     );
   }
 }

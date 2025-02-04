@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:otherstory_app/theme/app_colors.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+class StatisticsScreen extends StatefulWidget {
+  const StatisticsScreen({super.key});
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<StatisticsScreen> createState() => _StatisticsScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _StatisticsScreenState extends State<StatisticsScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
           color: AppColors.whiteColor,
           border: Border.all(color: AppColors.blackColor, width: 1)),
-      child: const Center(child: Text('MainScreen')),
+      child: const Center(child: Text('StatisticsScreen')),
     );
   }
 }
