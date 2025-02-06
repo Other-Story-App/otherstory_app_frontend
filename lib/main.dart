@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'ui/theme/theme.dart';
 
 void main() {
   runZonedGuarded(() => runApp(const MainApp()), (error, stack) {
@@ -14,8 +14,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: lightTheme,
+      home: const Scaffold(
         body: Center(
           child: Text('Hello World!'),
         ),
