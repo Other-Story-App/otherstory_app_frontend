@@ -16,7 +16,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: themeData,
+      theme: lightTheme,
       home: const Scaffold(
         body: Center(
           child: Text('Hello World!'),
